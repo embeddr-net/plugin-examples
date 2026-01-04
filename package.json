@@ -1,0 +1,40 @@
+{
+  "name": "@embeddr/plugins",
+  "version": "0.0.1",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/src/index.js",
+      "require": "./dist/src/index.js",
+      "types": "./dist/src/index.d.ts"
+    },
+    "./examples/*": {
+      "import": "./dist/examples/*.js",
+      "require": "./dist/examples/*.js",
+      "types": "./dist/examples/*.d.ts"
+    }
+  },
+  "private": true,
+  "scripts": {
+    "build": "tsc && cp examples/embeddr_arcade/theme.mp3 dist/examples/embeddr_arcade/",
+    "bundle": "node build-plugins.js && cp examples/embeddr_arcade/theme.mp3 dist/embeddr-arcade/ && cp examples/embeddr_arcade/plugin.py dist/embeddr-arcade/",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@embeddr/react-ui": "^0.1.4",
+    "lucide-react": "^0.544.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
+    "@types/node": "^25.0.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.7.3"
+  }
+}
